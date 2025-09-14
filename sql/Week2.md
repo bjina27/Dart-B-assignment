@@ -83,7 +83,9 @@ FROM <br>
 Table
 
 #### SQL 문법 핵심 정리
-![alt text](image-1.png){: width="100" height="100"}
+<img src="image-1.png" alt="설명" width="300" height="200">
+
+<!-- ![alt text](image-1.png) -->
 
 ## 2-5. 집계 (Group By / HAVING / SUM,COUNT)
 
