@@ -82,7 +82,8 @@ SELECT <br>
 FROM <br>
 Table
 
-![alt text](image-1.png)
+#### SQL 문법 핵심 정리
+![alt text](image-1.png){: width="100" height="100"}
 
 ## 2-5. 집계 (Group By / HAVING / SUM,COUNT)
 
