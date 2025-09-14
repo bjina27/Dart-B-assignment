@@ -105,8 +105,46 @@ SELECT<br>
 FROM table<br>
 GROUP BY<br>
  집계할 컬럼1
- ###### 집계할 컬럼을 SELECT에 명시하고 그 컬럼을 꼭 GROUP BY에 작성
-
+ > 집계할 컬럼을 SELECT에 명시하고 그 컬럼을 꼭 GROUP BY에 작성
+#### DISTINCT: 고유값을 알고 싶은 경우
+- 여러 값 중에 Unique한 값만 보고 싶은 경우 사용
+- DISTINCT는 중복을 제거하는 것
+- COUNT(DISTINCT 컬럼)
+##### DISTINCT를 SQL로 표현해보기
+SELECT<br>
+ 집계할 컬럼,<br>
+ COUNT(DISTINCT count할_컬럼)<br>
+FROM table<br>
+GROUP BY<br>
+ 집계할 컬럼
+#### 그룹화 활용 포인트
+- 일자별 집계: 원본 데이터는 특정 시간에 어떤 유저가 한 행동이 기록되어 있음
+- 연령대별 집계: 특정 연령대에서 더 많이 구매했는가?
+- 특정 타입별 집계: 특정 제품 타입을 많이 구매했는가?
+- 앱 화면별 집계: 어떤 화면에 유저가 많이 접근했는가? 등등
+#### 조건을 설정하고 싶은 경우: WHERE
+- Table에 바로 조건을 설정하고 싶은 경우 사용
+- RAW Data인 테이블 데이터에서 조건 설정
+##### WHERE을 SQL로 표현해보기
+SELECT<br>
+ 컬럼1, 컬럼2,<br>
+ COUNT(컬럼1) AS col1_count<br>
+FROM table<br>
+WHRER
+ 컬럼1 >= 3
+#### 조건을 설정하고 싶은 경우: HAVING
+- GROUP BY한 후 조건을 설정하고 싶은 경우 사용
+- 서브쿼리의 FROM 절에 다른 쿼리가 들어가는 경우
+##### HAVING을 SQL로 표현해보기
+SELECT<br>
+ 컬럼1, 컬럼2,<br>
+ COUNT(컬럼1) AS col1_count<br>
+FROM table<br>
+GROUP BY 컬럼1, 컬럼2
+HAVING
+ col_count > 3
+#### WHERE과 HAVING의 차이
+<img src="image-2.png" alt="설명" width="300" height="200">
 
 
 
