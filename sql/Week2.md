@@ -82,7 +82,7 @@ SELECT <br>
 FROM <br>
 Table
 
-![alt text](image.png)
+![alt text](image-1.png)
 
 ## 2-5. 집계 (Group By / HAVING / SUM,COUNT)
 
