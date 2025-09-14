@@ -99,14 +99,14 @@ Table
 #### GROUP BY: 같은 값끼리 모아서 그룹화한다
 - 특정 컬럼을 기준으로 모으면서 다른 컬럼에서 집계 가능(합, 평균, min, max 등)
 ##### 집계를 SQL로 표현해보기
-SELECT
- 집계할 컬럼1,
- 집계 함수(COUNT, MAX, MIN 등)
-FROM table
-GROUP BY
+SELECT<br>
+ 집계할 컬럼1,<br>
+ 집계 함수(COUNT, MAX, MIN 등)<br>
+FROM table<br>
+GROUP BY<br>
  집계할 컬럼1
  > 집계할 컬럼을 SELECT에 명시하고 그 컬럼을 꼭 GROUP BY에 작성
- 
+
 
 
 
