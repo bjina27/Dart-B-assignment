@@ -71,8 +71,8 @@ FROM basic.pokemon<br>
 WHERE<br>
  type1="Fire"
  ~~~
- basic이 데이터셋, pokemon이 테이블 <br>
- *: 모든 컬럼을 출력, 용량 확인 가능, 행이 많으면 비용이 많이 발생 <br>
+ basic이 데이터셋, pokemon이 테이블 
+ *: 모든 컬럼을 출력, 용량 확인 가능, 행이 많으면 비용이 많이 발생 
  컬럼 몇개를 제외하고 출력하고 싶을 때는 '* EXCEPT(제외할 컬럼)'의 형태도 가능
  ~~~
 
