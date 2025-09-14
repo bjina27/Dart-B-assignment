@@ -180,6 +180,13 @@ SELECT<br>
 FROM<br>
 LIMIT 10
 
+### 요약, 집계, 그룹화 정리
+- 집계하고 싶은 경우: GROUP BY + 집계함수
+- 고유값을 알고 싶은 경우: DISTINCT
+- 조건을 설정하고 싶은 경우: WHERE, HAVING
+- 정렬하고 싶은 경우: ORDER BY
+- 출력 개수를 제한하고 싶은 경우: LIMIT
+
 
 # 2️⃣ 학습 인증란
 
@@ -209,7 +216,16 @@ FROM pokemon;
 
 
 ~~~
-여기에 답을 작성해주세요!
+1. '포켓몬 이름' => 작은 따옴표가 아닌 백틱을 사용해야 한다.
+2. ID 뒤의 ; => FROM 전에 쿼리를 끝내버려서 실행 불가
+3. WHERE은 FROM 뒤에 와야함.
+[올바른 쿼리문]
+SELECT 
+ name AS `포켓몬 이름`, 
+ ID
+FROM pokemon
+WHERE 
+  type = 'Electric';
 ~~~
 
 
@@ -228,7 +244,14 @@ GROUP BY type;
 
 
 ~~~
-여기에 답을 작성해주세요.
+집계 결과를 조건으로 필터링하기 위해서는 HAVING을 사용해야 한다.
+[올바른 쿼리문]
+SELECT 
+  type, 
+  AVG(attack) AS avg_attack
+FROM pokemon
+GROUP BY type
+HAVING AVG(attack) >= 60
 ~~~
 
 
