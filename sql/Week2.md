@@ -65,19 +65,19 @@
 
 #### 예시
 ##### 포켓몬 타입이 불인 포켓몬을 찾는 SQL 쿼리
-SELECT
- *
-FROM basic.pokemon
-WHERE
+SELECT<br>
+ *<br>
+FROM basic.pokemon<br>
+WHERE<br>
  type1="Fire"
- > basic이 데이터셋, pokemon이 테이블
- > *: 모든 컬럼을 출력, 용량 확인 가능, 행이 많으면 비용이 많이 발생
+ > basic이 데이터셋, pokemon이 테이블 <br>
+ > *: 모든 컬럼을 출력, 용량 확인 가능, 행이 많으면 비용이 많이 발생 <br>
  > 컬럼 몇개를 제외하고 출력하고 싶을 때는 <* EXCEPT(제외할 컬럼)>의 형태도 가능
 
 ##### 특정 Table에 있는 데이터를 추출
-SELECT
- col
-FROM
+SELECT <br>
+ col <br>
+FROM <br>
 Table
 
 ## 2-5. 집계 (Group By / HAVING / SUM,COUNT)
