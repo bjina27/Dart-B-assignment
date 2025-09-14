@@ -85,8 +85,6 @@ Table
 #### SQL 문법 핵심 정리
 <img src="image-1.png" alt="설명" width="300" height="200">
 
-<!-- ![alt text](image-1.png) -->
-
 ## 2-5. 집계 (Group By / HAVING / SUM,COUNT)
 
 ~~~
@@ -97,7 +95,18 @@ Table
 ~~~
 
 <!-- 새롭게 배운 내용을 자유롭게 정리해주세요.-->
-
+### 집계 : GROUP BY
+#### GROUP BY: 같은 값끼리 모아서 그룹화한다
+- 특정 컬럼을 기준으로 모으면서 다른 컬럼에서 집계 가능(합, 평균, min, max 등)
+##### 집계를 SQL로 표현해보기
+SELECT
+ 집계할 컬럼1,
+ 집계 함수(COUNT, MAX, MIN 등)
+FROM table
+GROUP BY
+ 집계할 컬럼1
+ > 집계할 컬럼을 SELECT에 명시하고 그 컬럼을 꼭 GROUP BY에 작성
+ 
 
 
 
