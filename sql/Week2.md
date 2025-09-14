@@ -82,6 +82,8 @@ SELECT <br>
 FROM <br>
 Table
 
+![alt text](image.png)
+
 ## 2-5. 집계 (Group By / HAVING / SUM,COUNT)
 
 ~~~
