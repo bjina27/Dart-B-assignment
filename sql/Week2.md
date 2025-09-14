@@ -105,7 +105,7 @@ SELECT<br>
 FROM table<br>
 GROUP BY<br>
  집계할 컬럼1
- > 집계할 컬럼을 SELECT에 명시하고 그 컬럼을 꼭 GROUP BY에 작성
+ ###### 집계할 컬럼을 SELECT에 명시하고 그 컬럼을 꼭 GROUP BY에 작성
 
 
 
