@@ -146,6 +146,39 @@ HAVING
 #### WHERE과 HAVING의 차이
 <img src="image-2.png" alt="설명" width="300" height="200">
 
+- WHERE: Table에 바로 조건을 설정
+- HAVING: GROUP BY한 후 조건을 설정
+##### WHERE과 HAVING을 SQL로 표현해보기
+SELECT<br>
+ 컬럼1, 컬럼2,<br>
+ COUNT(컬럼1) AS col1_count<br>
+FROM table<br>
+WHERE
+ 컬럼1 >= 3
+GROUP BY 컬럼1, 컬럼2
+HAVING
+ col_count > 3
+#### 서브쿼리
+- SELECT문 안에 존재하는 SELECT 쿼리
+- FROM 절에 또 다른 SELECT문을 넣을 수 있음
+- 괄호로 묶어서 사용
+- 서브쿼리를 작성하고, 서브쿼리 바깥에서 WHERE 조건을 설정하는 것 = 서브쿼리에서 HAVING으로 하는 것
+### 정렬: ORDER BY
+- 순서: DESC(내림차순), OSC(오름차순-보통Default)
+- ORDER BY는 쿼리의 맨 마지막에 두고, 쿼리의 맨 마지막에만 작성하면 됨(중간에 필요x)
+##### ORDER BY를 SQL로 표현해보기
+SELECT<br>
+ col<br>
+FROM<br>
+ORDER BY <컬럼> <순서>
+### 출력 개수 제한: LIMIT
+- 쿼리문의 결과 ROW 수를 제한
+- 쿼리문의 제일 마지막에 작성
+##### ORDER BY를 SQL로 표현해보기
+SELECT<br>
+ col<br>
+FROM<br>
+LIMIT 10
 
 
 # 2️⃣ 학습 인증란
