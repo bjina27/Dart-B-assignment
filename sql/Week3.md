@@ -63,15 +63,15 @@
 
 <!-- 새롭게 배운 내용을 자유롭게 정리해주세요.-->
 ### 1. 포켓몬 중에 type2가 없는 포켓몬의 수를 작성하는 쿼리를 작성해주세요.
-
+~~~
 SELECT
   COUNT(id) AS cnt
 FROM basic.pokemon
 WHERE
   type2 IS NULL
-
+~~~
 ### 2. type2가 없는 포켓몬의 type1과 type1의 포켓몬 수를 알려주는 쿼리를 작성해주세요.
-
+~~~
 SELECT
   type1,
   COUNT(id) AS cnt
@@ -82,27 +82,27 @@ GROUP BY
   type1
 ORDER BY 
   cnt DESC
-
+~~~
 ### 3. type2 상관 없이 type1의 포켓몬 수를 알 수 있는 쿼리를 작성해주세요.
-
+~~~
 SELECT
   type1,
   COUNT(id) AS cnt
 FROM basic.pokemon
 GROUP BY 
   type1
-
+~~~
 ### 4. 전설 여부에 따른 포켓몬 수를 알 수 있는 쿼리를 작성해주세요.
-
+~~~
 SELECT
   is_legendary,
   COUNT(id) AS cnt
 FROM basic.pokemon
 GROUP BY 
   is_legendary
-
+~~~
 ### 5. 동명 이인이 있는 이름은 무엇일까요?
-
+~~~
 SELECT
   name,
   COUNT(name) AS cnt
@@ -111,23 +111,23 @@ GROUP BY
   name
 HAVING
   cnt >= 2
-
+~~~
 ### 6. trainer 테이블에서 "Iris" 트레이너의 정보를 알 수 있는 쿼리를 작성해주세요.
-
+~~~
 SELECT
   *
 FROM basic.trainer
 WHERE
   name = "Iris"
-
+~~~
 ### 7. trainer 테이블에서 "Iris", "Whitney", "Cynthia" 트레이너의 정보를 알 수 있는 쿼리를 작성해주세요.
-
+~~~
 SELECT
   *
 FROM basic.trainer
 WHERE
   name IN ("Iris", "Whitney", "Cynthia")
-
+~~~
 
 
 ## 2-8. 새로운 집계함수
