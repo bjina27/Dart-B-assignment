@@ -48,9 +48,9 @@
 ### 데이터 분석의 전체 프로세스
 
 #### 데이터 분석의 3단계
-<p align="center">
+
 <img src="image-7.png" alt="설명" width="300" height="200">
-</p>
+
 - 데이터 분석의 목표
         의사결정 프로세스를 최적화하는 것
         효과적인 결정을 할 수 있도록 도움을 주는 것
@@ -72,9 +72,7 @@
 
 #### CRISP-DM 방법론
 
-<p align="center">
 <img src="image-8.png" alt="설명" width="300" height="200">
-</p>
 
 - 1단계 - 비즈니스 이해
         현재 상황 평가
@@ -106,9 +104,8 @@
 
 #### SAS SEMMA 방법론
 
-<p align="center">
-<img src="image-9.png" alt="설명" width="300" height="200">
-</p>
+
+<img src="image-9.png" alt="설명" width="300" height="100">
 
 - Sampling 단계
         전체 데이터에서 분석용 데이터 추출
@@ -135,9 +132,9 @@
         분석 모델 결과를 비즈니스 인사이트에 적용
         상황에 따라 추가적인 데이터 분석 수행
 
-<p align="center">
+
 <img src="image-10.png" alt="설명" width="300" height="200">
-</p>
+
 
 - 다양한 방법론이 있지만 핵심은 모두 동일
 - 전체 과정은 무조건 단방향으로 진행되지는 않음
@@ -150,15 +147,14 @@
 - 비즈니스 이해 및 문제 정의가 조금이라도 잘못되면 최종 인사이트 도출 및 솔루션 적용 단계에서 제대로 된 효과를 보기가 힘듦
 
 #### MECE(Mutually Exclusive Collectively Exhaustive)
+
+<img src="image-11.png" alt="설명" width="300" height="200">
+
 - 비즈니스 문제를 올바르게 정의하기 위한 논리적 접근법
 - 가장 널리 쓰임
 - 세부 정의들이 서로 겹치지 않고 전체를 합쳤을 때는 빠진 것 없이 완전히 전체를 이루는 것
 - 로직 트리를 활용하여 세부 항목을 정리
 - 세부 항목들은 서로 중복되지 않으면서 상위 항목 전체를 포함하고 있어야 함
-
-<p align="center">
-<img src="image-11.png" alt="설명" width="300" height="200">
-</p>
 
 #### 비즈니스 문제/목적 정의
 - 비즈니스 문제는 현상에 대한 설명으로 끝나서는 안되고, 본질적인 문제점이 함께 전달되어야 함
@@ -174,9 +170,7 @@
 ### 외부 데이터 수집과 크롤링
 #### 외부 데이터 수집
 
-<p align="center">
 <img src="image-12.png" alt="설명" width="300" height="200">
-</p>
 
 - 정형, 반정형, 비정형 등의 다양한 유형의 데이터를 수집하는 것을 뜻함
 - 외부 데이터를 수집하는 세 가지 방법
@@ -215,9 +209,7 @@
 <!-- 새롭게 배운 내용을 자유롭게 정리해주세요.-->
 ### 데이터 분석 언어
 
-<p align="center">
 <img src="image-13.png" alt="설명" width="300" height="200">
-</p>
 
 #### SAS(Statistical Analysis System)
 - 대표적인 제품형 데이터 분석 솔루션(프로그래미어 언어보다는 솔루션에 가까움)
@@ -249,9 +241,7 @@
 
 ### 데이터 처리 프로세스
 
-<p align="center">
 <img src="image-14.png" alt="설명" width="300" height="200">
-</p>
 
 일반적으로 전체적인 데이터 흐름은 OLTP->DW(ODS)->DM->OLAP으로 이루어짐
 
@@ -297,18 +287,17 @@
         - Reduce: 필터링과 정렬을 거쳐 데이터를 뽑아냄
     - 맵리듀스의 중요한 특징은 key-value 쌍으로 데이터를 처리한다는 것
     - 맵리듀스가 단어의 수를 세는 네가지 단계
-        <p align="center">
+        
         <img src="image-15.png" alt="설명" width="300" height="200">
-        </p>
+        
 
         - 분할: 입력된 데이터를 고정된 크기의 조각으로 분할
         - 매핑: 분할된 데이터를 key-value 형태로 묶어주고 단어 게수를 계산
         - 셔플링: 매핑 단계의 counting 결과를 정렬 및 병합
         - 리듀싱: 각 결과를 취합 및 계산하여 최종 결괏값을 산출
 - 하둡
-        <p align="center">
-        <img src="image-16.png" alt="설명" width="300" height="200">
-        </p>
+        
+    <img src="image-16.png" alt="설명" width="300" height="200">
 
     - 제공되는 기능에 따라 하둡1.0과 하둡2.0으로 구분됨
     - JobTracker(하둡1.0): 기본적인 리소스 관리 시스템
@@ -323,9 +312,8 @@
         - Node Manager 기능도 제공되는데, 이는 모든 노드에서 실행되어 각각의 할당된 task를 실행하고 진행 상황을 관리함
 
 - 분산 시스템 구조
-    <p align="center">
+    
     <img src="image-17.png" alt="설명" width="300" height="200">
-    </p>
     
     노드는 하나의 컴퓨터, 몇 개의 컴퓨터가 모인 것이 랙(rack), 랙들이 모인 것이 클러스터
     클라이언트가 하나의 잡을 실행시키면 그 잡은 여러 개의 태스크를 실행하게 되고 각각의 태스크는 맵과 리듀스를 통해 분산처리
