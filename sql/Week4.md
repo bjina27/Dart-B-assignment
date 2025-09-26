@@ -335,6 +335,8 @@ SELECT
 
 # 2️⃣ 확인문제 & 문제 인증
 
+![alt text](image-8.png)
+
 ## 프로그래머스 문제 
 
 > 조건에 맞는 회원 수 구하기 (SELECT, COUNT) 
