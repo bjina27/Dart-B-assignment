@@ -56,6 +56,60 @@
 
 <!-- 새롭게 배운 내용을 자유롭게 정리해주세요.-->
 
+### SQL 쿼리 작성 중 발생하는 오류
+
+#### Error의 정의
+- 부정확하거나 잘못된 행동을 의미
+- 실수와 동의어인 경우도 있음
+- 오류메세지가 알려주고자 하는 것
+  - 길잡이 역할: 현재 작성한 방식으로는 답을 얻을 수 없음
+  - 문제 진단: 이 부분이 문제가 됨
+
+
+#### Syntax error: 문법 오류
+<img src="image-5.png" alt="설명" width="300" height="200">
+
+- 문법을 지키지 않아 생기는 오류
+- Error Message를 해석 후, 해결 방법 탐색
+  - 구글 검색
+  - ChatGPT 질문
+    - 데이터 예시나 쿼리를 제공 후 오류가 발생한 것을 말해보기
+  - 커뮤니티 질문
+~~~
+0. 밑줄이 나타났다면, 밑줄 앞이나 뒤에 error가 있을 가능성이 큼
+
+1. SELECT list must not be empty at [10:1]
+  - 해석: SELECT 목록은 [10:1]에서 비어 있으면 안됨
+  * [10:1]: 10번째 줄 1번째 칸
+  - 원인: SELECT와 FROM 사이가 비어있기 때문에 발생
+  - 해결: SELECT와 FROM 사이에 col 명을 적어주기
+
+2. Number of arguments does not match for aggregate function COUNT
+  - 해석: 집계 함수 COUNT의 인자 수가 일치하지 않음
+  - 원인: COUNT(name, Kor_name)처럼 COUNT() 안에는 여러가지 인자가 들어가면 안됨
+  - 해결: COUNT() 안에 하나의 인자만 넣기
+
+3. SELECT list expression references column type1 a which is neither grouped nor aggregated
+  - 해석: SELECT 절에 있는 type1 컬럼이 그룹화되지도 않고 집계 함수로 묶이지도 않음
+  - 원인: GROUP BY에 적절한 컬럼을 명시하지 않음
+  - 해결: 하단에 GROUP BY type1을 작성
+
+4. Expected end of input but got keyword SELECT
+  - 해석: 입력이 끝날 것으로 예상되었지만 SELECT 키워드가 입력됨
+  - 원인: 여러개의 쿼리를 실행시키면서 하나의 쿼리가 끝날 때 ;을 붙이지 않음
+  - 해결: 쿼리가 끝나는 부분에 ;을 붙이기
+
+5. Expected end of input but got keyword WHERE at [5:1]
+  - 해석: 입력이 끝날 것으로 예상되었지만 [5:1]에서 키워드 WHERE를 얻음
+  - 원인: WHERE 바로 직전 LIMIT이 입력됨
+  - 해결: LIMIT을 쿼리의 맨 아래에 위치시키기
+
+6. Expected ")" but got end of script at [8:11]
+  - 해석: ")"가 예상되지만 [8:11]에서 스크립트가 끝남
+  - 원인: 닫는 괄호 ")"가 작성되지 않음
+  - 해결: ")"을 작성
+~~~  
+
 
 
 ## 4-2. 데이터 타입과 데이터 변환(CAST, SAFE_CAST)
