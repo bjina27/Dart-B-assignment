@@ -317,7 +317,7 @@ SELECT
   DATETIME(CURRENT_TIMESTAMP(), 'Asia/Seoul') AS datetime_col
 
 # timestamp_col 출력: 2024-01-18 11:55:11.536268 UTC
-# datetime_col 출력: 2024-01-18T20:55:11.536268 UTC
+# datetime_col 출력: 2024-01-18T20:55:11.536268 
 ```
 
 | | TIMESTAMP | DATETIME |
