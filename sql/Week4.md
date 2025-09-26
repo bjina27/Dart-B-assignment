@@ -257,7 +257,72 @@ SELECT
   - 두 시간의 차이, 특정 부분 출력하기
 ~~~
 
-#### 
+### 시간 데이터 다루기
+시간 데이터도 세부적으로 나눌 수 있음<br>
+
+#### DATE, DATETIME, TIME
+- DATE: DATE만 표시하는 데이터
+  - 2023-12-22
+- DATETIME: DATE와 TIME까지 표시하는 데이터
+  - Time Zone 정보 없음
+  - 2022-10-33 14:00:00
+- TIME: 날짜와 무관하게 시간만 표시하는 데이터
+  - 23:59:12.00
+
+#### 타임존
+- GMT: Greenwhich Mean Time
+  - 한국 시간: GMT +9
+  - 영국의 그리니치 천문대(경도 0도)를 기준으로 하는 시간의 구분선
+  - 영국 근처에서 자주 활용
+- UTC: Universal Time Coordinated
+  - 한국 시간: UTC +9
+  - 협정 세계시
+  - 타임존이 존재한다 == 특정 지역의 표준 시간대
+- TIMESTAMP: 시간 도장
+  - UTC로부터 경과한 시간을 나타내는 값
+  - Time Zone 정보 있음
+  - 2023-12-31 10:00:00 UTC
+
+#### millisecond, microsecond
+- millisecond(ms)
+  - 시간의 단위(1000ms = 1초)
+  - 빠른 반응이 필요한 분야에서 사용
+  - Millisecond -> TIMESECOND -> DATETIME으로 변경
+- microsecond(µs)
+  - 1/1,000ms, 1/1,000,000초
+- 예시: 1704176819711ms
+  - 이를 DATETIME으로 변환하면 2024-01-02 15:26:59(DATETIME)
+```sql
+SELECT
+  TIMESTAMP_MILLIS(1704176819711) AS milli_to_timestamp_value,
+  TIMESTAMP_MICROS(1704176819711000) AS micro_to_timestamp_value,
+  DATETIME(TIMESTAMP_MICROS(1704176819711000)) AS datetime_value1,
+  DATETIME(TIMESTAMP_MILLIS(1704176819711)) AS datetime_value2,
+  DATETIME(TTIMESTAMP_MICROS(1704176819711000), 'Asia/Seoul') AS datetime_asia;
+
+# datetime_value1와 datetime_value2은 같은 결과 출력
+# datetime_value1은 UTC 기준 시간, datetime_asia은 서울 기준 시간
+# datetime_asia = datetime_value1 + 9시간
+```
+
+#### 시간 데이터끼리의 변환
+- 많은 회사들의 Table에 시간이 TIMESTAMP로 저장된 경우가 많지만 DATETIME으로 저장되어있기도 함
+- 따라서 TIMESTAMP <-> DATETIME 변환을 해야 할 수도 있음
+
+```sql
+SELECT
+  CURRENT_TIMESTAMP() AS timestamp_col,
+  DATETIME(CURRENT_TIMESTAMP(), 'Asia/Seoul') AS datetime_col
+
+# timestamp_col 출력: 2024-01-18 11:55:11.536268 UTC
+# datetime_col 출력: 2024-01-18T20:55:11.536268 UTC
+```
+
+| | TIMESTAMP | DATETIME |
+|---|---|---|
+| 타임존 | UTC라고 나옴 | T가 나옴(TIME을 의미) |
+| 시간 차이 | 한국 시간 - 9시간 | 한국 Zone 사용시 한국 시간과 동일 |
+
 
 
 <br>
@@ -280,7 +345,7 @@ SELECT
 
 <!-- 문제를 풀기 위하여 로그인이  필요합니다. -->
 
-<!-- 정답을 맞추게 되면, 정답입니다. 라는 칸이 생성되는데 이 부분을 캡처해서 이 주석을 지우시고 첨부해주시면 됩니다. --> 
+![alt text](image-7.png)
 
 
 
@@ -310,7 +375,10 @@ WHERE AGE BETWEEN 20 AND 29
 
 
 ~~~
-여기에 답을 작성해주세요!
+1. COUNT()는 인자를 하나만 허용하기 때문에 COUNT(*)로 작성해야 함
+오류 메세지 해석: 집계 함수 COUNT의 인자 수가 일치하지 않음
+2. 쿼리 맨 아래에 GROUP BY AGE;를 작성해야 함
+오류 메세지 해석: SELECT 절에 있는 AGE 컬럼이 그룹화되지도 않고 집계 함수로 묶이지도 않음
 ~~~
 
 
