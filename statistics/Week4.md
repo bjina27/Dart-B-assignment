@@ -184,8 +184,8 @@ sns.clustermap(): clustermap 히트맵 시각화
 <img src="image-29.png" alt="설명" width="300" height="200">
 
 - 코드가 복잡한 편에 속함
-- for문을 사용하여 각 팀에 대한 그래프를 그려줘야 함
-- 해당 데이터의 값의 범위에 따라 반지름, 축, 눈금 수치를 조절해야 함
+    - for문을 사용하여 각 팀에 대한 그래프를 그려줘야 함
+    - 해당 데이터의 값의 범위에 따라 반지름, 축, 눈금 수치를 조절해야 함
 
 #### 평행 좌표 그래프(Parallel coordinates)
 
@@ -210,7 +210,10 @@ sns.clustermap(): clustermap 히트맵 시각화
 >
 > > **인증 예시 : 통계 프로그램 결과, 시각화 이미지 캡처 등**
 
-<!-- 이 주석을 지우고 “실습 결과 화면(캡처)을 이곳에 첨부해주세요.-->
+<img src="image-31.png" alt="설명" width="500" height="500">
+
+<img src="image-32.png" alt="설명" width="300" height="200">
+
 
 ~~~
 인증 이미지가 없으면 과제 수행으로 인정되지 않습니다.
