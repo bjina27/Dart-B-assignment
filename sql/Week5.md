@@ -244,8 +244,6 @@ FROM basic.pokemon
 IF(조건문, True일 때의 값, False일 때의 값) AS 새로운_컬럼_이름
 ```
 
-
-
  # 4-5. 시간 데이터 연습문제 & 4-7. 조건문 연습 문제
 
 ~~~
@@ -264,7 +262,7 @@ IF(조건문, True일 때의 값, False일 때의 값) AS 새로운_컬럼_이�
 <img width="500" height="300" alt="image" src="https://github.com/user-attachments/assets/0ebf11a3-8503-406b-885e-09a702f50512" />
 <img width="500" height="300" alt="image" src="https://github.com/user-attachments/assets/f56a7ef3-6482-497b-9009-da8ff61c14c6" />
 
-- BETWEEN a and b: a와 b 사이에 있는 것을 반환
+- BETWEEN a and b: a 이상 b 이하의 것을 반환
 
 ## 4-7 1번 문제
 
@@ -345,7 +343,7 @@ FROM pokemon;
 type1이 Fire도 아니고 Water도 아닌 경우 Normal로 출력되기 때문에, Pikachu와 Bulbasaur의 type_description 결과가 Normal로 출력됨
 ~~~
 
-
+<img width="760" height="404" alt="image" src="https://github.com/user-attachments/assets/3347b82d-be08-4b14-b5cb-51ce67905c49" />
 
 <br>
 
