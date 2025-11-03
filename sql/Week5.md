@@ -188,7 +188,12 @@ FROM(
   - 저장할 때부터 특정 카테고리를 합쳐서 저장하면, 쪼개서 보고 싶을 때 볼 수 없음
  
 ### 조건문: CASE_WHEN
-- 여러 조건이 있을 경우 유용
+- **여러 조건**이 있을 경우 유용
+- 조건1, 조건2 둘 다에 해당하면 앞선 순서를 따름
+- 문자열 함수(예: 특정 단어 추출)에서 이슈가 자주 발생
+  - 데이터가 순서에 따라 결과가 달라질 수 있음음
+- **조건의 순서**에 주의해야 함
+
 ```sql
 # 문법
 
@@ -199,6 +204,7 @@ SELECT
   ELSE 그 외 조건일 경우 결과
 END AS 새로운_컬럼_이름
 ```
+
 ```sql
 # 예시1: Rock 타입과 Ground 타입이 비슷하다 -> Rock&Ground 타입 새로 만들기
 
@@ -210,6 +216,7 @@ SELECT
   END AS new_type1
 FROM basic.pokemon
 ```
+
 <img width="400" height="200" alt="image" src="https://github.com/user-attachments/assets/75b561ab-6bbf-414c-b4d3-2a93f034b4fd" />
 
 ```sql
@@ -225,8 +232,17 @@ SELECT
  END AS attack_level
 FROM basic.pokemon
 ```
+
 <img width="400" height="200" alt="image" src="https://github.com/user-attachments/assets/eaf16eb3-3310-4c34-aaaf-c1ed88c88431" />
 
+### 조건문: IF
+- **단일 조건**일 경우 유용
+
+```sql
+# 문법
+
+IF(조건문, True일 때의 값, False일 때의 값) AS 새로운_컬럼_이름
+```
 
 
 
@@ -250,7 +266,17 @@ FROM basic.pokemon
 
 - BETWEEN a and b: a와 b 사이에 있는 것을 반환
 
+## 4-7 1번 문제
 
+<img width="500" height="300" alt="image" src="https://github.com/user-attachments/assets/5f524f1c-adea-445e-b0ae-e48693953ecd" />
+
+- 단일 조건일 때는 IF 사용
+
+## 4-7 2번 문제
+
+<img width="500" height="300" alt="image" src="https://github.com/user-attachments/assets/356da982-1a75-4aea-96ba-d5637f4ec006" />
+
+- 여러 조건일 때는 CASE_WHEN 사용
 
 <br>
 
