@@ -168,7 +168,65 @@ FROM(
 * 조건문 함수의 기능을 이해하고, 설명할 수 있다. 
 ~~~
 
-<!-- 새롭게 배운 내용을 자유롭게 정리해주세요.-->
+## 조건문 함수
+- 특정 조건이 충족되면, 어떤 행동을 취함
+- 특정 조건이 참일 때 A, 거짓일 때 B
+  - 조건에 따른 분기 처리가 필요
+- 조건에 따라 다른 값을 표시하고 싶을 때 사용
+  - 컬럼을 변환하고 싶을 때 사용
+  - 예를 들면, height >= 180이면 '정말 크다'라고 출력
+
+### 조건문을 사용하는 방법
+- CASE_WHEN
+- IF
+
+### 조건문 함수가 사용되는 이유
+- 특정 카테고리를 하나로 합치는 전처리가 필요할 수 있음
+  - 예를 들면, 1/2/3은 저학년으로, 4/5/6을 고학년으로 구분
+- 데이터를 저장하는 쪽과 데이터를 분석하는 쪽이 나뉘는 경우가 있음
+  - 이런 경우, 분석할 때 필요한 부분에서 조건을 설정해서 변경하는 것이 더 유용
+  - 저장할 때부터 특정 카테고리를 합쳐서 저장하면, 쪼개서 보고 싶을 때 볼 수 없음
+ 
+### 조건문: CASE_WHEN
+- 여러 조건이 있을 경우 유용
+```sql
+# 문법
+
+SELECT
+ CASE
+  WHEN 조건1 THEN 조건1이 참일 경우 결과
+  WHEN 조건2 THEN 조건2가 참일 경우 결과
+  ELSE 그 외 조건일 경우 결과
+END AS 새로운_컬럼_이름
+```
+```sql
+# 예시1: Rock 타입과 Ground 타입이 비슷하다 -> Rock&Ground 타입 새로 만들기
+
+SELECT
+  *,
+  CASE
+    WHEN type1 IN ("Rock", "Ground") OR type2 IN ("Rock", "Ground") THEN "Rock&Ground"
+  ELSE type1
+  END AS new_type1
+FROM basic.pokemon
+```
+<img width="400" height="200" alt="image" src="https://github.com/user-attachments/assets/75b561ab-6bbf-414c-b4d3-2a93f034b4fd" />
+
+```sql
+# 예시2: 각 포켓몬의 공격력을 기준으로, 50 이상이면 'Strong', 100 이상이면 'Very Strong', 그 이하면 'Weak'으로 분류
+
+SELECT
+ eng_name,
+ attack,
+ CASE
+  WHEN attack >= 100 THEN 'Very Strong'
+  WHEN attack >= 50 THEN 'Strong'
+  ELSE 'Weak'
+ END AS attack_level
+FROM basic.pokemon
+```
+<img width="400" height="200" alt="image" src="https://github.com/user-attachments/assets/eaf16eb3-3310-4c34-aaaf-c1ed88c88431" />
+
 
 
 
