@@ -311,7 +311,7 @@ IF(조건문, True일 때의 값, False일 때의 값) AS 새로운_컬럼_이�
 <!-- 틀린쿼리에 대한 오류의 원인도 같이 작성해주세요. 문제에서 제공된 login_data 컬럼은 DATE type의 데이터를 가지고 있다고 가정하시면 됩니다. -->
 
 ~~~
-여기에 답을 작성해주세요!
+3번: login_data 컬럼은 DATE type인데 '2021'은 문자열 타입임
 ~~~
 
 
@@ -342,7 +342,7 @@ FROM pokemon;
 <!-- 근거와 함께 답을 작성해주세요 -->
 
 ~~~
-여기에 답을 작성해주세요!
+type1이 Fire도 아니고 Water도 아닌 경우 Normal로 출력되기 때문에, Pikachu와 Bulbasaur의 type_description 결과가 Normal로 출력됨
 ~~~
 
 
