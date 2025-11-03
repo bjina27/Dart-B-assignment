@@ -179,7 +179,18 @@ FROM(
 * 4-5, 4-7 각각에서 두 문제 이상 (최소 4문제) 푼 내용 정리하기
 ~~~
 
-<!-- 새롭게 배운 내용을 자유롭게 정리해주세요.-->
+## 4-5 1번 문제
+<img width="500" height="300" alt="image" src="https://github.com/user-attachments/assets/e9f2f227-c5b0-49e7-8f8a-09e3377d7fbd" />
+<img width="500" height="300" alt="image" src="https://github.com/user-attachments/assets/43e5f30a-5019-4fd8-9c1e-078d8476f3d1" />
+
+- 데이터 타입이 컬럼명을 따르지 않을 수 있으므로 데이터의 특징은 직접 보고 판단해야 함
+
+## 4-5 2번 문제
+
+<img width="500" height="300" alt="image" src="https://github.com/user-attachments/assets/0ebf11a3-8503-406b-885e-09a702f50512" />
+<img width="500" height="300" alt="image" src="https://github.com/user-attachments/assets/f56a7ef3-6482-497b-9009-da8ff61c14c6" />
+
+- BETWEEN a and b: a와 b 사이에 있는 것을 반환
 
 
 
