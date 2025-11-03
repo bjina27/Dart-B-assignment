@@ -58,9 +58,108 @@
 * CURRENT_TIME, EXTRACT, DATETIME_TRUNC, PARSE_DATETIME, FROMAT_DATETIME 을 설명할 수 있다. 
 ~~~
 
-<!-- 새롭게 배운 내용을 자유롭게 정리해주세요.-->
+## DATETIME 함수
 
+### CURRENT_DATETIME
+- CURRENT_DATETIME([time_zone]): 현재 datetime 출력
+```sql
+SELECT
+ # 연-월-일 출력
+ CURRENT_DATE() AS current_date,
+ # 연-월-일 출력
+ CURRENT_DATE("Asia/Seoul") AS asia_date,
+ # 연-월-일 시간 출력
+ CURRENT_DATETIME() AS current_datetime,
+ # 연-월-일 시간(time_zone 반영) 출력
+ CURRENT_DATETIME("Asia/Seoul") AS current_datetime_asia;
+```
 
+### EXTRACT
+- DATETIME에서 특정 부분만 추출하고 싶은 경우
+- 월별 주문, 일자별 주문 등
+```sql
+SELECT
+ # 연-월-일 출력
+ EXTRACT(DATE FROM DATETIME "2024-01-02 14:00:00") AS date,
+ # 년도만 출력
+ EXTRACT(YEAR FROM DATETIME "2024-01-02 14:00:00") AS year,
+ # 달만 출력
+ EXTRACT(MONTH FROM DATETIME "2024-01-02 14:00:00" AS DATETIME) AS month,
+ # 날짜만 출력
+ EXTRACT(DAY FROM DATETIME "2024-01-02 14:00:00" AS DATETIME) AS day,
+ # 시간만 출력
+ EXTRACT(HOUR FROM DATETIME "2024-01-02 14:00:00" AS DATETIME) AS hour,
+ # 분만 출력
+ EXTRACT(MINUTE FROM DATETIME "2024-01-02 14:00:00" AS DATETIME) AS minute;
+
+ # 요일만 출력: 한 주의 첫날이 일요일인 [1,7] 범위의 값을 반환
+ EXTRACT(DAYOFWEEK FROM datetime_col)
+```
+
+### DATETIME_TRUNC
+- DATE와 HOUR만 남기고 싶은 경우: 시간 자르기
+```sql
+SELECT
+ # 날짜 이하는 0으로 출력
+ DATETIME_TRUNC(DATETIME "2024-03-02 14:42:13", DAY) AS day_trunc,
+ # 년도 이하는 0으로 출력
+ DATETIME_TRUNC(DATETIME "2024-03-02 14:42:13", YEAR) AS year_trunc,
+ # 달 이하는 0으로 출력
+ DATETIME_TRUNC(DATETIME "2024-03-02 14:42:13", MONTH) AS month_trunc,
+ # 시간 이하는 0으로 출력
+ DATETIME_TRUNC(DATETIME "2024-03-02 14:42:13", HOUR) AS hour_trunc;
+```
+
+### PARSR_DATETIME
+- **문자열**로 저장된 DATETIME을 **DATETOME 타입**으로 바꾸고 싶은 경우
+- %A, %a등의 의미는 문서 확
+```sql
+PARSE_DATETIME('문자열의 형태', 'DATETIME 문자열') AS datetime
+```
+
+### FORMAT_DATETIME
+- **DATETIME 타입** 데이터를 특정 형태의 **문자열** 데이터로 변환하고 싶은 경우
+```sql
+SELECT
+ FORMAT_DATETIME("%c", DATETIME "2024-01-11 12:35:35") AS formatted;
+```
+
+### LAST_DAY
+- 마지막 날을 알고 싶은 경우: 자동으로 월의 마지막 값을 계산해서 특정 연산을 할 경우
+- LAST_DAY(DATETIME): 월의 마지막 값을 반환
+```sql
+SELECT
+ # 1월의 마지막 날짜 출력
+ LAST_DAY(DATETIME '2024-01-03 15:30:00') AS last_day,
+ # 1월의 마지막 날짜 출력
+ LAST_DAY(DATETIME '2024-01-03 15:30:00', MONTH) AS last_month,
+ # 해당 주의 토요 날짜 출력
+ LAST_DAY(DATETIME '2024-01-03 15:30:00', WEEK) AS last_day_week,
+ # 해당 주의 토요일 날짜 출력
+ LAST_DAY(DATETIME '2024-01-03 15:30:00', WEEK(SUNDAY)) AS last_day_week_sun,
+ # 해당 주의 일요일 날짜 출력
+ LAST_DAY(DATETIME '2024-01-03 15:30:00', WEEK(MONDAY)) AS last_day_week_mon;
+```
+
+### DATETIME_DIFF
+- 두 DATETIME의 차이를 알고싶은 경우
+- DATETIME_DIFF(첫 DATETIME, 두번째 DATETIME, 궁금한 차이)
+```sql
+SELECT
+ # 두 datetime의 차
+ DATETIME_DIFF(first_datetime, second_datetime, DAY) AS day_diff1,
+ # 두 datetime의 차
+ DATETIME_DIFF(second_datetime, first_datetime, DAY) AS day_diff2,
+ # 두 datetime의 달 수의 차
+ DATETIME_DIFF(first_datetime, second_datetime, MONTH) AS month_diff,
+ # 두 datetime의 주 수 차
+ DATETIME_DIFF(first_datetime, second_datetime, WEEK) AS week_diff,
+FROM(
+ SELECT
+  DATETIME "2024-04-02 10:20:00" AS first_datetime,
+  DATETIME "2024-01-01 15:30:00" AS second_datetime,
+)
+```
 
 # 4-6. 조건문(CASE WHEN, IF)
 
