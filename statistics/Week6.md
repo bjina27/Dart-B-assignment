@@ -227,8 +227,6 @@
 - Z-score: Zero-mean으로부터 얼마나 떨어져 있는지를 나타냄
 - 각 관측치 값에서 평균을 빼준 후 표준편차로 나눠주면 됨
 
-> <img width="100" height="80" alt="image" src="https://github.com/user-attachments/assets/dcb1676c-f4e1-4854-8450-9e886fa8a8ee" />
-
 #### 정규화
 
 <img width="400" height="200" alt="image" src="https://github.com/user-attachments/assets/1bc0d8fb-5735-4e50-bbb0-72127ff81906" />
@@ -237,8 +235,6 @@
 - 전체 데이터 중에서 해당 값이 어떤 위치에 있는지 파악하는 데에 유용
 - 0에 가까울수록 작은 값이고 1에 가까울수록 큰 값임
 - 정규화는 (해당값 - 최솟값) / (최댓값 - 최솟값)을 해주면 됨
-
-> <img width="100" height="60" alt="image" src="https://github.com/user-attachments/assets/650c3d1d-e60d-4841-8932-ef4c44edda2c" />
 
 #### 정리
 1. 표준화는 평균에서 얼마나 떨어져있는지를 나타내기 때문에 최댓값이 1이 될 수도, 8이 될 수도 있음
@@ -264,7 +260,8 @@
 >
 > > **인증 예시 : 통계 프로그램 결과, 시각화 이미지 캡처 등**
 
-<!-- 이 주석을 지우고 “실습 결과 화면(캡처)을 이곳에 첨부해주세요.-->
+<img width="1800" height="1198" alt="image" src="https://github.com/user-attachments/assets/875dc118-5839-4ada-b757-c2e434068377" />
+
 
 ~~~
 인증 이미지가 없으면 과제 수행으로 인정되지 않습니다.
