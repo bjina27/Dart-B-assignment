@@ -55,9 +55,18 @@
 * JOIN에 대한 정의와 필요성에 대해 설명할 수 있다.
 ~~~
 
-<!-- 새롭게 배운 내용을 자유롭게 정리해주세요.-->
+### JOIN의 개념
+1. SQL JOIN: 서로 다른 데이터 테이블을 연결하는 것
+2. 공통적으로 존재하는 컬럼(Key)이 있다면 JOIN 할 수 있음
+  - 보통 id값을 Key로 많이 사용하고, 특정 범위로 JOIN 가능
 
-
+### JOIN을 해야하는 이유
+1. 관계형 데이터베이스(RDBMS) 설계시 정규화 과정을 거침
+   - 정규화는 중복을 최소화하게 데이터를 구조화
+   - User Table은 유저 데이터만, Order Table은 주문 데이터만
+   - 따라서 데이터를 다양한 Table에 저장해서 필요할 때 JOIN해서 사용
+2. 데이터 분석하는 관점에선 미리 JOIN되어 있는 것이 좋을 수도 있지만, 개발 관점에서는 분리되어 있는 것이 좋음
+   - 대신 데이터 웨어하우스에서 JOIN + 필요한 연산을 해서 데이터 마트를 만들어 활
 
 ## 5-3. 다양한 JOIN 방법
 
@@ -67,8 +76,40 @@
 * 각 JOIN 방법들의 차이점에 대해서 설명할 수 있다. 
 ~~~
 
-<!-- 새롭게 배운 내용을 자유롭게 정리해주세요.-->
+### INNER JOIN
 
+<img width="400" height="200" alt="image" src="https://github.com/user-attachments/assets/aa7708f8-2688-4d51-9e55-ecac24e868da" />
+<img width="200" height="100" alt="image" src="https://github.com/user-attachments/assets/d245057d-83bf-4758-a094-0acd69fadbbc" />
+
+- 두 테이블의 공통요소만 연결
+
+
+### LEFT/RIGHT JOIN
+
+<img width="400" height="200" alt="image" src="https://github.com/user-attachments/assets/aa7708f8-2688-4d51-9e55-ecac24e868da" />
+<img width="200" height="180" alt="image" src="https://github.com/user-attachments/assets/f7f9d40b-6705-4679-9fc3-7481220e05a4" />
+<img width="200" height="180" alt="image" src="https://github.com/user-attachments/assets/6f74dd41-7dc1-4765-878f-5f3f9b27d60a" />
+
+- 왼쪽/오른쪽 테이블 기준으로 연결
+
+
+### FULL (OUTER) JOIN
+
+<img width="400" height="200" alt="image" src="https://github.com/user-attachments/assets/aa7708f8-2688-4d51-9e55-ecac24e868da" />
+<img width="200" height="210" alt="image" src="https://github.com/user-attachments/assets/8bfc9b18-9b63-4f5c-b797-aa355d4a6baf" />
+
+- 양쪽 기준으로 연결
+
+### CROSS JOIN
+
+<img width="400" height="200" alt="image" src="https://github.com/user-attachments/assets/aa7708f8-2688-4d51-9e55-ecac24e868da" />
+<img width="200" height="400" alt="image" src="https://github.com/user-attachments/assets/1f2d8881-d9e8-4246-9d91-60dd9424cd7d" />
+
+- 두 테이블의 각각의 요소를 곱하기
+
+### JOIN 집합 관점으로 생각하기
+
+<img width="500" height="200" alt="image" src="https://github.com/user-attachments/assets/fef03fdf-dfae-4832-9a67-a017d3eeb1d8" />
 
 
 ## 5-4. JOIN 쿼리 작성하기 
@@ -79,8 +120,76 @@
 * JOIN 을 활용한 쿼리를 작성할 수 있다. 
 ~~~
 
-<!-- 새롭게 배운 내용을 자유롭게 정리해주세요.-->
+### JOIN 쿼리 작성 흐름
 
+| 단계 | 단계명 | 내용 |
+|------|---------|------|
+| 1 | 테이블 확인 | 테이블에 저장된 데이터, 컬럼 확인 |
+| 2 | 기준 테이블 정의 | 가장 많이 참고할 기준 테이블 정의 |
+| 3 | JOIN Key 찾기 | 여러 Table과 연결할 Key(ON) 정리 |
+| 4 | 결과 예상하기 | 결과 테이블을 예해서 손, 엑셀로 작성 |
+| 5 | 쿼리 작성 / 검증 | 예상한 결과와 동일한 결과가 나오는지 확인 |
+
+### JOIN 문법
+
+- FROM 하단에 JOIN할 Table을 작성하고 ON 뒤에 공통된 컬럼(Key)를 작성
+- 테이블 이름이 길면 별칭(Alias)를 사용할 수 있음
+  
+```sql
+SELECT
+  A.col1,
+  A.col2,
+  B.col1,
+  B.col2
+FROM table1 AS A
+LEFT JOIN table2 AS B
+ON A.key # Alias를 사용할 수 있음
+```
+
+### JOIN별 쿼리 예시
+
+| JOIN 종류 | ON 필수 여부 | 쿼리 예시 |
+|------------|--------------|------------|
+| **INNER JOIN** | O | 아래 예시 참고 |
+| **LEFT/RIGHT JOIN** | O | 아래 예시 참고 |
+| **FULL JOIN** | O | 아래 예시 참고 |
+| **CROSS JOIN** | X | 아래 예시 참고 |
+
+**INNER JOIN**
+```sql
+SELECT
+  col
+FROM table_a AS A
+INNER JOIN table_b AS B
+ON A.key = B.key;
+```
+
+**LEFT/RIGHT JOIN**
+```sql
+
+SELECT
+  col
+FROM table_a AS A
+LEFT/RIGHT JOIN table_b AS B
+ON A.key = B.key;
+```
+
+**FULL JOIN**
+```sql
+SELECT
+  col
+FROM table_a AS A
+FULL JOIN table_b AS B
+ON A.key = B.key;
+```
+
+**CROSS JOIN**
+```sql
+SELECT
+  col
+FROM table_a AS A
+CROSS JOIN table_b AS B;
+```
 
 
 ## 5-6. JOIN 연습문제 1~5번 
