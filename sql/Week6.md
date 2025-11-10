@@ -199,9 +199,61 @@ CROSS JOIN table_b AS B;
 * 연습문제(3문제 이상) 푼 것들 정리하기
 ~~~
 
-<!-- 새롭게 배운 내용을 자유롭게 정리해주세요.-->
+1. 트레이너가 보유한 포켓몬들은 얼마나 있는지 알 수 있는 쿼리를 작성하라.
+```sql
+SELECT
+  tp.*,
+  p.id,
+  p.kor_name
+  FROM (
+  SELECT
+    id,
+    trainer_id,
+    pokemon_id,
+    status
+FROM basic.trainer_pokemon
+WHERE
+  status IN ("Active", "Training")
+) AS tp
+LEFT JOIN basic.pokemon AS p
+ON tp.pokemon_id = p.id
+```
+<img width="500" height="200" alt="image" src="https://github.com/user-attachments/assets/6a298fa1-70a3-426b-9e0b-3b476c2cb837" />
 
+2. 각 트레이너가 가진 포켓몬 중에서 'Grass' 타입의 포켓몬 수를 계산하시오.
+```sql
+SELECT
+  tp.*,
+  p.type1
+  FROM (
+  SELECT
+    id,
+    trainer_id,
+    pokemon_id,
+    status
+FROM basic.trainer_pokemon
+WHERE
+  status IN ("Active", "Training")
+) AS tp
+LEFT JOIN basic.pokemon AS p
+ON tp.pokemon_id = p.id
+WHERE
+  type1 = "Grass"
+```
+<img width="500" height="200" alt="image" src="https://github.com/user-attachments/assets/f32cba5c-22a0-44f3-a898-e43881aa047b" />
 
+3. 트레이너의 고향과 포켓몬을 포획한 위치를 비교하여, 자신의 고향에서 포켓몬을 포획한 트레이너의 수를 계산하라.
+```sql
+SELECT
+  COUNT(DISTINCT tp.trainer_id) AS trainer_uniq,
+FROM basic.trainer AS t
+LEFT JOIN basic.trainer_pokemon AS tp
+ON t.id = tp.trainer_id
+WHERE
+  tp.location IS NOT NULL
+  AND t.hometown = tp.location
+```
+<img width="400" height="200" alt="image" src="https://github.com/user-attachments/assets/fb5f19f1-6365-4283-9114-00c23a28d825" />
 
 <br>
 
@@ -221,7 +273,8 @@ https://school.programmers.co.kr/learn/courses/30/lessons/144854
 
 > 조건에 맞는 도서와 저자 리스트 출력하기 (JOIN)
 
-<!-- 정답을 맞추게 되면, 정답입니다. 이 부분을 캡처해서 이 주석을 지우시고 첨부해주시면 됩니다. --> 
+<img width="1398" height="512" alt="image" src="https://github.com/user-attachments/assets/a602b84a-494a-4d44-b8a2-8114f60dd139" />
+<img width="1384" height="598" alt="image" src="https://github.com/user-attachments/assets/041680ea-4315-4358-9014-4822237f3d0e" />
 
 
 
