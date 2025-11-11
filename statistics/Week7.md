@@ -103,6 +103,7 @@
 
 <img width="500" height="300" alt="image" src="https://github.com/user-attachments/assets/d4a11706-4fc4-47da-ac5d-fe5f5cb4fd4f" />
 
+
 1. 실시간 네트워크 패킷 데이터를 처리하는 기법
 2. 현재 시점으로부터 ±M 기간의 데이터를 일정 간격의 시간마다 전송하는 방식
 3. 각각의 데이터 조각(window)들이 서로 겹치며 데이터가 전송됨
