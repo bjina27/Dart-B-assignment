@@ -248,8 +248,15 @@ https://leetcode.com/problems/list-the-products-ordered-in-a-period/
 
 
 
-<!-- 정답을 맞추게 되면, 정답입니다. 이 부분을 캡처해서 이 주석을 지우시고 첨부해주시면 됩니다. --> 
+<img width="1242" height="438" alt="image" src="https://github.com/user-attachments/assets/ad0d1d62-81dc-403d-8e66-3205754c3b0c" />
 
+<img width="1226" height="428" alt="image" src="https://github.com/user-attachments/assets/2349ca3d-93ab-491e-bc9f-c40b111548be" />
+
+<img width="1190" height="470" alt="image" src="https://github.com/user-attachments/assets/a4506d14-a216-4968-9874-d9363da17e94" />
+
+<img width="1336" height="424" alt="image" src="https://github.com/user-attachments/assets/081f4add-a4e9-4d0f-9392-96de969f8ecf" />
+
+<img width="1318" height="360" alt="image" src="https://github.com/user-attachments/assets/a26e8fa4-2377-48d2-887b-73cef170ec10" />
 
 
 ## 문제 1
@@ -272,7 +279,24 @@ where u.region= 'Busan'			order by o.OrderID
 
 
 ~~~
-여기에 답을 작성해주세요.
+SELECT 
+    u.name,
+    o.OrderID,
+    p.ProductName,
+    od.Quantity,
+    od.UnitPrice
+FROM 
+    Users AS u
+    JOIN Orders AS o 
+        ON u.id = o.userId
+    JOIN OrderDetails AS od 
+        ON o.OrderID = od.orderID
+    JOIN Products AS p 
+        ON od.ProductID = p.ProductID
+WHERE 
+    u.region = 'Busan'
+ORDER BY 
+    o.OrderID;
 ~~~
 
 
