@@ -181,20 +181,82 @@
    - Synthetic Minority Over-Sampling Technique(SMOTE)
      - 대표적인 오버샘플링 기법
      - K-근접이웃 기법을 사용
-     - 비중이 작은 클래스의 관측치의 K 최근접 이웃 관측치들을 찾아서, 해당 관측치와 K개 이웃 관측치들 사이의 값을 가진 새로운 관측치들을 생성
-   - Adaptive Synthetic Sampling Approach(ADASYN)
-     - SMOTE 기법을 발전시킨 방식
-     - 오버샘플링할 관측치의 양을 체계적으로 조절할 수 있음
-     - 세부 알고리즘
-       1. 클래스 불균형의 정도를 측정
-       2. 작은 비중의 클래스에 속하는 관측치들의 K-근접이웃들 중 큰 비중의 클래스에 속하는 관측치의 비율을 구함, 이를 $r_i$라 함
-       3. 모든 작은 비중의 클래스의 관측치에 대한 $r_i$값을 구하여 표준화함
-       4. 클래스의 균형을 맞추기 위해 오버샘플링해야하는 관측치의 수를 $\hat{r_i}$에 곱하여 $g_i$를 구함
-       5. 277p부터 
+     - 비중이 작은 클래스의 관측치의 K 최근접 이웃 관측치들을 찾아서, 해당 관측발
 
 ### 11.9. 데이터 거리 측정 방법
 
-<!-- 새롭게 배운 내용을 자유롭게 정리해주세요. -->
+<img width="500" height="200" alt="image" src="https://github.com/user-attachments/assets/fe78c77a-de68-4789-aed0-4ccc561a9995" />
+
+- 데이터 거리 측정: 관측치 A를 기준으로, B와 C 중 어느 관측치가 더 가까이 있는가를 판단하기 위한 것
+- 데이터 유사도 측정이라고도 함
+
+#### 대표적인 거리 측정 방법
+
+##### 유클리드 거리
+
+<img width="500" height="300" alt="image" src="https://github.com/user-attachments/assets/6774261f-4a14-4370-8594-bdf6d3899b9b" />
+
+- 피타코라스 정리 활용
+- 관측치 간의 직선 거리를 측정
+- 개념이 매우 직관적이고 실제 거리를 사용
+- 유클리드 거리 값이 0에 가까울수록 데이터 간의 거리가 짧음을 의미
+- <img width="300" height="100" alt="image" src="https://github.com/user-attachments/assets/77ec41a3-9be4-4c91-a943-b1ce73fed1a6" />
+
+##### 맨해튼 거리
+
+<img width="500" height="300" alt="image" src="https://github.com/user-attachments/assets/0ebbe8a2-eebf-4e54-bb90-4cea39ca7373" />
+
+- 택시 거리라고도 불림
+- 맨해튼의 격자 모양 도로에서 최단거리를 구하는 원리를 이용
+- 맨해튼 거리는 L1 Norm이라 불리며, L2 Norm은 유클리드 거리임
+- A지점과 B지점까지의 X축 거리와 Y축 거리를 합해주면 됨
+- <img width="300" height="100" alt="image" src="https://github.com/user-attachments/assets/651eda93-98b5-4d3a-9d89-e6aaa5cc350b" />
+
+##### 민코프스키 거리
+
+- 옵션값을 설정하여 거리 기준을 조정할 수 있는 거리 측정 방법
+- 유클리드 거리 수식과 동일하며, 단지 제곱 부분을 p-norm값으로 조정 가능
+- p값을 1로 설정하면 맨해튼 거리와 동일하고, 2로 설정하면 유클리드 거리와 동일
+- p값은 반드시 1 이상이어야 하고, 정수가 아니어도 됨
+- <img width="200" height="100" alt="image" src="https://github.com/user-attachments/assets/9e050fc7-ee98-4b4a-b3b8-a1d8000d74df" />
+
+##### 체비쇼프 거리
+
+- 민코프스키 거리의 p값을 무한대로 설정했을 때의 거리
+- 맥시멈 거리라고도 함
+- 군집 간의 최대 거리를 구할 때 사용
+- 계산값이 0에 가까울수록 유사함
+- <img width="300" height="100" alt="image" src="https://github.com/user-attachments/assets/a7b62228-9a91-43f2-b73e-3aa7ef2036c0" />
+
+##### 마할라노비스 거리
+
+<img width="500" height="300" alt="image" src="https://github.com/user-attachments/assets/9887ce71-843e-4cb0-a7a6-53e40a9ce2e9" />
+
+- 유클리드 거리에 공분산을 고려한 거리 측정 방법
+  - X와 Y의 공분산을 고려하여 거리를 측정
+- 변수 내 분산과 변수 간 공분산을 모두 반영하여 A와 B간 거리를 계산
+- 단순 거리의 상관성을 함께 볼 수 있음
+- 확률 분포를 고려하기 때문에 공분산 행렬을 사용
+- <img width="200" height="100" alt="image" src="https://github.com/user-attachments/assets/6378ffe7-8865-4b0f-83ff-178c62a6f989" />
+
+##### 코사인 거리
+
+<img width="500" height="300" alt="image" src="https://github.com/user-attachments/assets/f8b992cc-d330-45c8-8ca6-8c8773a96eee" />
+
+- 코사인 유사도: 두 벡터의 사이각을 구해서 유사도를 구하는 것
+  - -1에서 1 사이의 값을 가짐
+  - 두 벡터의 방향이 완전히 동일하면 1의 값을 가짐
+  - 일반적으로 코사인 유사도는 양수 변수를 사용하기 때문에 0에서 1 사이의 값을 가짐
+  - <img width="300" height="100" alt="image" src="https://github.com/user-attachments/assets/e2ffecc9-30e7-4cc3-8de6-6b24180d9164" />
+
+  - 코사인 유사도는 벡터의 각도만으로 유사도를 판단해도 무방할 때 사용
+  - 협업 필터링 모델이나 문서 간 유사도를 측정하는 모델에서 좋은 성능을 보임
+- 1에서 코사인 유사도를 빼면 그게 바로 코사인 거리
+- 코사인 유사도가 높을수록 거리는 줄어들음
+
+
+
+
 
 <br>
 <br>
