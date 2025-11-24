@@ -271,7 +271,9 @@
 >
 > > **인증 예시 : 통계 프로그램 결과, 시각화 이미지 캡처 등**
 
-<!-- 이 주석을 지우고 “실습 결과 화면(캡처)을 이곳에 첨부해주세요.-->
+<img width="584" height="366" alt="image" src="https://github.com/user-attachments/assets/77d1487c-f490-42b3-a1ea-7e599f3d3b0e" />
+<img width="1620" height="1091" alt="image" src="https://github.com/user-attachments/assets/cf0e9ea2-51a1-48de-a38e-4e949e327fcf" />
+
 
 ~~~
 인증 이미지가 없으면 과제 수행으로 인정되지 않습니다.
